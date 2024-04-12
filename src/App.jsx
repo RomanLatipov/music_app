@@ -1,7 +1,8 @@
 import './App.css'
 import AudioPlayer from './components/AudioPlayer'
 import Main from './components/Main'
-import { useState } from 'react'
+import Playlist from './components/Playlist'
+import { useEffect, useState } from 'react'
 
 function App() {
   const [currentSongs, setCurrentSong] = useState([]);
@@ -10,7 +11,9 @@ function App() {
 
   return (
     <>
-    <div id="sidebar"></div>
+    <div id="sidebar">
+      <Playlist />
+    </div>
     <div id="header"> </div>
     <div id="main">
       <Main songSetter={setCurrentSong} setSrcChange={setSrcChange}/>
