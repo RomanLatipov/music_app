@@ -2,6 +2,7 @@ import "./Discover.css";
 import Song from "./Song";
 import List from "./List";
 import { useState, useEffect } from "react";
+import Navbar from "../components/Navbar";
 
 export default function Discover({songSetter, setSrcChange, setIndex, setPlaying}) {
     const [arrayOfSongs, setArrayOfSongs] = useState([]);
@@ -62,6 +63,7 @@ export default function Discover({songSetter, setSrcChange, setIndex, setPlaying
     const songs = displaySongs.map(song => <Song key={song.id} song={song} index={displaySongs.indexOf(song)} setIndex={setIndex} setSrcChange={setSrcChange} setPlaying={setPlaying}
         button={playlists.map(list => <List id={list.id} name={list.name} handlePostToPlaylist={handlePostToPlaylist} song={song}/>)}/>)
     return(<>
+        <Navbar />
         <h1>This is Discover</h1>
         <input type="test" placeholder="Search..." onChange={event => handleSearch(event.target.value)}></input>
         <div id="songs">
