@@ -24,7 +24,6 @@ export default function Home() {
         .then(data => setSongs(data))
     }, [])
 
-    console.log(mostRecent);
     return(<>
         <div id="sidebar">
             <button onClick={() => setToggle(true)}>Main</button>

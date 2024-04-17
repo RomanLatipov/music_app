@@ -50,12 +50,14 @@ export default function PlaylistDisplay({setToggle, setPlaylistName, setPlaylist
     return(<>
         <br></br>
         <div id="mySidenav" class="sidenav">
-            <button class="closebtn" onClick={() => closeNav()}>X</button>
-            <button onClick={() => {
+            <div class="closebtn" style={{color: "white"}}onClick={() => closeNav()}>x</div>
+            <form onSubmit={() => {
                 handlePost(name);
-            }}>Make Playlist</button>
-            <br></br>
-            <input placeholder="Playlist name..." value={name} onChange={event => setName(event.target.value)}></input>
+            }}>
+                <input placeholder="Playlist name..." value={name} onChange={event => setName(event.target.value)}></input>
+                <input type="file" id="myFile" name="filename"></input>
+                <input type="submit"></input>
+            </form>
         </div>
         <br></br>
         <span style={{font: "30px", cursor: "pointer"}} onClick={openNav}>Create Playlist</span>

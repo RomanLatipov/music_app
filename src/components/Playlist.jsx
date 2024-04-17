@@ -31,7 +31,7 @@ export default function Playlist({playlistId, playlistName, playlistArray, setPl
             hanldeDeleteFromPlaylist(playlistId, index);
         }}>Delete</button>}/>)
     return(<>
-        <h1>This is {playlistName}</h1>
+        <h1>{playlistName}</h1>
         <input type="test" placeholder="Search..." value={value} onChange={event => {
             handleSearch(event.target.value);
             setValue(event.target.value);

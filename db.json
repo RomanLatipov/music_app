@@ -8,7 +8,7 @@
         "edm",
         "rock"
       ],
-      "album_cover": ""
+      "album_cover": "maxresdefault.jpg"
     },
     {
       "id": "2",
@@ -18,7 +18,7 @@
         "edm",
         "house"
       ],
-      "album_cover": ""
+      "album_cover": "artworks-000196811233-l3mzq8-t500x500.jpg"
     },
     {
       "id": "3",
@@ -27,7 +27,7 @@
       "genres": [
         "edm"
       ],
-      "album_cover": ""
+      "album_cover": "maxresdefault-1.jpg"
     },
     {
       "id": "4",

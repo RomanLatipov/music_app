@@ -2,7 +2,7 @@ import "./AudioPlayer.css"
 import { useState } from "react";
 export default function AudioPlayer({musicArray, srcChange, setSrcChange, isPlaying, setPlaying, currentSong, setIndex, playlistArray, mostRecent, setMostRecent}) {
     // console.log(playlistArray);
-    // console.log(currentSong);
+    // console.log(musicArray[playlistArray[songId]]["album_cover"]);
     const index = playlistArray.indexOf(currentSong);
     if (srcChange === true) {
         loadSong(index);
@@ -36,6 +36,7 @@ export default function AudioPlayer({musicArray, srcChange, setSrcChange, isPlay
         // console.log(playlistArray[songId]);
         audio.src = `/songs/${musicArray[playlistArray[songId]].title}.mp3`;
 	    audio.load();
+        document.getElementById("main").style.backgroundImage = `url(./public/images/${musicArray[playlistArray[songId]]["album_cover"]})`;
         setMostRecent([playlistArray[songId], ...mostRecent]);
         switchTrack();
     }

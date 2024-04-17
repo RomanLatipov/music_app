@@ -35,16 +35,10 @@ export default function DiscoverSongs({songs, setCurentSong, setSrcChange, setPl
                     }))
     }
 
-    function handleSearch(name) {
-        const search = songs.filter(s => s.title.toLowerCase().includes(name.toLowerCase()));
-        setArrayOfSongs(search);
-    }
-
-    const displaySongs = arrayOfSongs.map(song => <Song song={song} songIndex={songs.indexOf(song)} setCurentSong={setCurentSong} setSrcChange={setSrcChange} setPlaying={setPlaying} 
-    button={playlists.map(list => <List id={list.id} name={list.name} handlePostToPlaylist={handlePostToPlaylist} index={songs.indexOf(song)}/>)}/>)
+    const displaySongs = songs.map(song => <Song song={song} songIndex={songs.indexOf(song)} setCurentSong={setCurentSong} setSrcChange={setSrcChange} setPlaying={setPlaying} 
+        button={playlists.map(list => <List id={list.id} name={list.name} handlePostToPlaylist={handlePostToPlaylist} index={songs.indexOf(song)}/>)}/>)
     return(<>
         <input type="test" placeholder="Search..." value={value} onChange={event => {
-            handleSearch(event.target.value);
             setValue(event.target.value);
         }}></input>
         <button onClick={() => {
@@ -52,6 +46,6 @@ export default function DiscoverSongs({songs, setCurentSong, setSrcChange, setPl
             setSrcChange(true);
             setCurentSong(0);
         }}>Play</button>
-        {displaySongs}
+        {(value === "") ? displaySongs : displaySongs.filter(song => song.props.song.title.toLowerCase().includes(value.toLowerCase()))}
     </>)
 }
