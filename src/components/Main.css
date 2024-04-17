@@ -1,0 +1,7 @@
+#mostrecent {
+    display: flex;
+}
+#card {
+    background-color: aliceblue;
+    margin: 10px;
+}

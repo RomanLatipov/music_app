@@ -1,0 +1,29 @@
+* {
+	margin: 0;
+  font-family: 'Roboto';
+}
+#sidebar{
+    height: 90vh;
+    width: 15vw;
+    background: red;
+    grid-column: 1;
+    grid-row: 1;
+}
+#main {
+    background-color: blue;
+    height: 90vh;
+    width: 85vw;
+    grid-column: 2;
+    grid-row: 1;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+#footer{
+    background-color: #101727;
+    height: 10vh;
+    width: 100vw;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    color: white;
+}

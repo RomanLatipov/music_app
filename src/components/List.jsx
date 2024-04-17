@@ -1,8 +1,8 @@
-export default function List({id, name, handlePostToPlaylist, song}) {
+export default function List({id, name, handlePostToPlaylist, index}) {
 
     return(<>
         <button style={{width: "160px"}} onClick={()=> {
-            handlePostToPlaylist(id, song);
+            handlePostToPlaylist(id, index);
         }}>{name}</button>
     </>)
 }

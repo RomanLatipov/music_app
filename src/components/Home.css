@@ -1,0 +1,6 @@
+#root {
+    display: grid;
+    grid-template-columns: 15vw 85vw;
+    grid-template-rows: 90vh 10vh;
+    grid-gap: 0px;
+}

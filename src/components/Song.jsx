@@ -1,11 +1,11 @@
 import "./Song.css"
 
-export default function Song({song, index, setIndex, setSrcChange, setPlaying, button}) {
+export default function Song({song, songIndex, setCurentSong, setSrcChange, setPlaying, button}) {
     return(<>
         <div style={{background: "white", display: "flex", padding: "0.5rem"}}>
             <button onClick={() => {
                         setPlaying(true);
-                        setIndex(index);
+                        setCurentSong(songIndex);
                         setSrcChange(true);
                     }}>{<span class="material-symbols-outlined">play_arrow</span>}
             </button>

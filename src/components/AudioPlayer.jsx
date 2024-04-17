@@ -1,11 +1,13 @@
 import "./AudioPlayer.css"
 import { useState } from "react";
-export default function AudioPlayer({musicArray, srcChange, setSrcChange, isPlaying, setPlaying, index, setIndex}) {
+export default function AudioPlayer({musicArray, srcChange, setSrcChange, isPlaying, setPlaying, currentSong, setIndex, playlistArray, mostRecent, setMostRecent}) {
+    // console.log(playlistArray);
+    // console.log(currentSong);
+    const index = playlistArray.indexOf(currentSong);
     if (srcChange === true) {
         loadSong(index);
         setSrcChange(false);
     }
-    
     const [currentTime, setCurrentTime] = useState("0:00");
     const [endTime, setEndTime] = useState("0:00");
     const [slider, setSlider] = useState(0);
@@ -13,7 +15,7 @@ export default function AudioPlayer({musicArray, srcChange, setSrcChange, isPlay
     const [volumeIcon, setVolumeIcon] = useState(`volume_down`);
     const [volumeMuted, setVolumeMuted] = useState(false);
     const [shuffle, setShuffle] = useState(false);
-    const [name, setName] = useState("name");
+    const [name, setName] = useState("");
 
     function playSong() {
         if (isPlaying === false) {
@@ -31,30 +33,32 @@ export default function AudioPlayer({musicArray, srcChange, setSrcChange, isPlay
         }
     }
     function loadSong(songId) {
-        audio.src = `/songs/${musicArray[songId].title}.mp3`;
+        // console.log(playlistArray[songId]);
+        audio.src = `/songs/${musicArray[playlistArray[songId]].title}.mp3`;
 	    audio.load();
+        setMostRecent([playlistArray[songId], ...mostRecent]);
         switchTrack();
     }
     function prevSong(songId) {
         setSlider(0);
         if (songId < 0) {
-            songId = musicArray.length-1
+            songId = playlistArray.length-1
         }
-        setIndex(songId);
+        setIndex(playlistArray[songId]);
         loadSong(songId);
         switchTrack();
     }
     function nextSong(songId) {
         setSlider(0);
         if (shuffle) {
-            songId = Math.floor(Math.random() * musicArray.length);
+            songId = Math.floor(Math.random() * playlistArray.length);
         }
         else {
-            if(songId > musicArray.length-1) {
+            if(songId > playlistArray.length-1) {
                 songId = 0;
             }
         }
-        setIndex(songId);
+        setIndex(playlistArray[songId]);
         loadSong(songId);
         switchTrack();
     }
@@ -88,7 +92,7 @@ export default function AudioPlayer({musicArray, srcChange, setSrcChange, isPlay
     return(<>
         <audio id="audio" onLoadedData={() => {
             setTime(setEndTime, audio.duration)
-            setName(musicArray[index].title);
+            setName(musicArray[playlistArray[index]].title);
         }} onEnded={() => nextSong(index+1)} onTimeUpdate={() => timeupdate()}>
             <source src={""}></source> 
         </audio>
