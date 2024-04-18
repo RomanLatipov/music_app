@@ -28,11 +28,7 @@ export default function Discover() {
     }, [])
 
     return(<>
-        <div id="sidebar">
-            <p>SideBar</p>
-            <PlaylistsDisplay />
-        </div>
-        <div id="main">
+        <div id="main-discover">
             <Navbar />
             <DiscoverSongs songs={songs} setCurentSong={setCurentSong} setSrcChange={setSrcChange} setPlaying={setPlaying}/>
         </div>

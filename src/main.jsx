@@ -4,7 +4,7 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home";
 import Discover from "./components/Discover";
-import Eula from "./components/Eula";
+import Form from "./components/Form";
 
 const router = createBrowserRouter([
   {
@@ -16,8 +16,8 @@ const router = createBrowserRouter([
     element: <Discover />
   },
   {
-    path: "/eula",
-    element: <Eula />
+    path: "/form",
+    element: <Form />
   }
 ]);
 

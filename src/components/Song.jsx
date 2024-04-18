@@ -1,10 +1,10 @@
 import "./Song.css"
 
-export default function Song({song, songIndex, setCurentSong, setSrcChange, setPlaying, button}) {
+export default function Song({song, songIndex, setCurentSong, setSrcChange, setPlaying, button, buttonName}) {
 
     return(<>
-        <div style={{background: "white", display: "flex", padding: "0.5rem"}}>
-            <button onClick={() => {
+        <div className="song">
+            <button id="btn" onClick={() => {
                         setPlaying(true);
                         setCurentSong(songIndex);
                         setSrcChange(true);
@@ -14,8 +14,11 @@ export default function Song({song, songIndex, setCurentSong, setSrcChange, setP
                 <h1>{song.title}</h1>
                 <p style={{color: "grey"}}>{song.artist}</p>
             </div>
+            <div>
+                {song.genres.map(genre => <p>{genre}</p>)}
+            </div>
             <div class="dropdown">
-                <div class="dropdown-menu">...</div>
+                <div class="dropdown-menu">{buttonName}</div>
                 <div class="dropdown-content">
                     {button}
                 </div>

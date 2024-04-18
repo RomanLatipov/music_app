@@ -56,3 +56,11 @@ body{
     border: 0px solid rgba(255, 255, 255, 0.3);
 
 }
+.navbar {
+    background: #009F9D;
+    display: flex;
+    justify-content: space-around;
+    padding: 1.5rem;
+    width: 100%;
+    max-height: 10vh;
+}

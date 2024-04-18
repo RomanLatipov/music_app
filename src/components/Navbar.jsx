@@ -2,10 +2,10 @@ import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
     return(<>
-        <nav>
+        <nav class="navbar">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/discover">Discover</NavLink>
-            <NavLink to="/eula">Eula</NavLink>
+            <NavLink to="/form">Form</NavLink>
         </nav>
     </>)
 }

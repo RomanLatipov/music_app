@@ -1,3 +1,17 @@
+.song {
+    background: #303030;
+    padding: 0.5rem;
+    margin: 1rem;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr 1fr;
+    grid-gap: 0px;
+}
+#btn {
+    grid-column: 1;
+    max-width: 25%;
+}
+
 .dropdown {
     position: relative;
     display: inline-block;

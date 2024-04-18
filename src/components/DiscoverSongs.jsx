@@ -36,16 +36,19 @@ export default function DiscoverSongs({songs, setCurentSong, setSrcChange, setPl
     }
 
     const displaySongs = songs.map(song => <Song song={song} songIndex={songs.indexOf(song)} setCurentSong={setCurentSong} setSrcChange={setSrcChange} setPlaying={setPlaying} 
-        button={playlists.map(list => <List id={list.id} name={list.name} handlePostToPlaylist={handlePostToPlaylist} index={songs.indexOf(song)}/>)}/>)
+        button={playlists.map(list => <List id={list.id} name={list.name} handlePostToPlaylist={handlePostToPlaylist} index={songs.indexOf(song)}/>)} buttonName={"Add to playlist"}/>)
     return(<>
-        <input type="test" placeholder="Search..." value={value} onChange={event => {
-            setValue(event.target.value);
-        }}></input>
-        <button onClick={() => {
-            setPlaying(true);
-            setSrcChange(true);
-            setCurentSong(0);
-        }}>Play</button>
-        {(value === "") ? displaySongs : displaySongs.filter(song => song.props.song.title.toLowerCase().includes(value.toLowerCase()))}
+        <div id="main-page">
+            <input class="input" type="test" placeholder="Search..." value={value} onChange={event => {
+                setValue(event.target.value);
+            }}></input>
+            <button style={{padding: "1rem"}} onClick={() => {
+                setPlaying(true);
+                setSrcChange(true);
+                setCurentSong(0);
+            }}>Play</button>
+            {(value === "") ? displaySongs : displaySongs.filter(song => song.props.song.title.toLowerCase().includes(value.toLowerCase()))}
+    
+        </div>
     </>)
 }

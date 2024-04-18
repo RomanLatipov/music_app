@@ -22,15 +22,15 @@ export default function Playlist({playlistId, playlistName, playlistArray, setPl
 
     function handleSearch(name) {
         const search = playlistArray.filter(i => songs[i].title.toLowerCase().includes(name.toLowerCase()));
-        setSearch(search.map(index => <Song song={songs[index]} songIndex={index} setCurentSong={setCurentSong} setSrcChange={setSrcChange} setPlaying={setPlaying} button={<button style={{width: "160px"}} onClick={() => {
+        setSearch(search.map(index => <Song song={songs[index]} songIndex={index} setCurentSong={setCurentSong} setSrcChange={setSrcChange} setPlaying={setPlaying} buttonName={<button style={{width: "160px"}} onClick={() => {
             hanldeDeleteFromPlaylist(playlistId, index);
-        }}>Delete</button>}/>));
+        }}>-</button>}/>));
     }
 
     const displaySongs = playlistArray.map(index => <Song song={songs[index]} songIndex={index} setCurentSong={setCurentSong} setSrcChange={setSrcChange} setPlaying={setPlaying}
-        button={<button style={{width: "160px"}} onClick={() => {
+        buttonName={<button style={{width: "160px"}} onClick={() => {
             hanldeDeleteFromPlaylist(playlistId, index);
-        }}>Delete</button>}/>)
+        }}>-</button>}/>)
     return(<>
         <div className="header">
             {playlistName}
