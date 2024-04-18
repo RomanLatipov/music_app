@@ -3,27 +3,28 @@ import Navbar from "./Navbar";
 import { useState } from "react";
 
 export default function Form() {
-    // const [genres, setGenres] = useState([])
-    const [newSong, setNewSong] = useState({
-        "title": "",
-        "artist": "",
-        "genres": [
-        ],
-        "album_cover": ""
-    })
+    const [genre1, setGenre1] = useState("");
+    const [genre2, setGenre2] = useState("");
+    const [title, setTitle] = useState("");
+    const [artist, setArtist] = useState("")
+    const [cover, setCover] = useState("");
 
-    console.log(newSong);
-
-    function handlePost(newSong) {
-        
-
+    function handlePost() {
         fetch("http://localhost:3000/songs", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify(newSong)
+            body: JSON.stringify({
+                "title": title,
+                "artist": artist,
+                "genres": [
+                    genre1,
+                    genre2
+                ],
+                "album_cover": cover
+            })
         })
         .then(res => res.json())
         .then(data => console.log(data))
@@ -33,18 +34,20 @@ export default function Form() {
     return(<>
         <div id="body">
             <Navbar />  
-            <form onSubmit={() => {handlePost(newSong)}}>
+            <form onSubmit={() => {handlePost()}}>
                 <p>Ttitle</p>
-                <input placeholder="Song title..." value={newSong.title} onChange={event => setNewSong({"title": event.target.value})}></input>
+                <input placeholder="Song title..." value={title} onChange={event => setTitle(event.target.value)}></input>
                 <br></br>
                 <p>Artist</p>
-                <input placeholder="Artist name..." value={newSong.artist} onChange={event => setNewSong({"artist": event.target.value})}></input>
+                <input placeholder="Artist name..." value={artist} onChange={event => setArtist(event.target.value)}></input>
                 <br></br>
                 <p>Genre 1</p>
-                <input placeholder="Genre 1..." onChange={event => setNewSong({"genres": [event.target.value, ...newSong.genres[1]]})}></input>
+                <input placeholder="Genre 1..." value={genre1} onChange={event => setGenre1(event.target.value)}></input>
                 <br></br>
                 <p>Genre 2</p>
-                <input placeholder="Genre 2..." onChange={event => setNewSong({"genres": [...newSong.genres[0], event.target.value]})}></input>
+                <input placeholder="Genre 2..." value={genre2} onChange={event => setGenre2(event.target.value)}></input>
+                <p>Album cover</p>
+                <input placeholder="Album cover..." value={cover} onChange={event => setCover(event.target.value)}></input>
                 <input type="submit"></input>
             </form>
         </div>

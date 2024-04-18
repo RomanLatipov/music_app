@@ -1,0 +1,11 @@
+#main-card {
+    display: flex;
+    flex-direction :column;
+    max-height: 20vh;
+    padding: 1rem;
+    background-color: #222;
+    color: white
+}
+#main-card img {
+    width: 8rem;
+}

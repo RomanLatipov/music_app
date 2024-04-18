@@ -1,72 +1,116 @@
 {
   "songs": [
     {
-      "id": "1",
-      "title": "2241",
-      "artist": "Danger",
+      "id": "b1d0",
+      "title": "Blinding Lights",
+      "artist": "The Weekend",
       "genres": [
-        "edm",
-        "rock"
+        "Synthwave",
+        "R&B"
+      ],
+      "album_cover": "The_Weeknd_-_Blinding_Lights.png"
+    },
+    {
+      "id": "2a0a",
+      "title": "The Twist",
+      "artist": "Chubby Checker",
+      "genres": [
+        "R&B",
+        "Blues"
+      ],
+      "album_cover": "ab67616d0000b273549eb135b90286d7670a185f.jpg"
+    },
+    {
+      "id": "1c74",
+      "title": "Smooth",
+      "artist": "Santana",
+      "genres": [
+        "Classic Rock",
+        "Latin Rock"
+      ],
+      "album_cover": "Santanasmooth.jpg"
+    },
+    {
+      "id": "a314",
+      "title": "Mack The Knife",
+      "artist": "Bobby Darin",
+      "genres": [
+        "Pop",
+        "Jazz"
+      ],
+      "album_cover": "Mack_the_Knife_Bobby_Darin.jpg"
+    },
+    {
+      "id": "7930",
+      "title": "Uptown Funk!",
+      "artist": "Mark Ronson",
+      "genres": [
+        "Pop",
+        ""
+      ],
+      "album_cover": "MV5BOGE3YjlmOTktNzk5NC00MDkwLTlhNzgtNmU1MzIxYjdjZDY4XkEyXkFqcGdeQXVyNDQ5MDYzMTk@._V1_.jpg"
+    },
+    {
+      "id": "f690",
+      "title": "How Do I Live",
+      "artist": "LeAnn Rimes",
+      "genres": [
+        "Country",
+        ""
+      ],
+      "album_cover": "how do i live.jpg"
+    },
+    {
+      "id": "7815",
+      "title": "Party Rock Anthem",
+      "artist": "LMFAO",
+      "genres": [
+        "Pop",
+        "House"
+      ],
+      "album_cover": "Party_Rock_Anthem_(feat._Lauren_Bennet_&_GoonRock)_-_Single.jpg"
+    },
+    {
+      "id": "c85c",
+      "title": "I Gotta Feeling",
+      "artist": "The Black Eyed Peas",
+      "genres": [
+        "Pop",
+        ""
       ],
       "album_cover": "maxresdefault.jpg"
     },
     {
-      "id": "2",
-      "title": "Crash 2.0",
-      "artist": "Adventure Club",
+      "id": "7210",
+      "title": "Macarena (Bayside Boys Mix)",
+      "artist": "Los Del Rio",
       "genres": [
-        "edm",
-        "house"
+        "Pop",
+        ""
       ],
-      "album_cover": "artworks-000196811233-l3mzq8-t500x500.jpg"
+      "album_cover": "51AS9aCiNYL._UF1000,1000_QL80_.jpg"
     },
     {
-      "id": "3",
-      "title": "Fly Away feat. Anjulie",
-      "artist": "TheFatRat",
+      "id": "22a2",
+      "title": "Shape Of You",
+      "artist": "Ed Sheeran",
       "genres": [
-        "edm"
+        "Pop",
+        "R&B"
       ],
-      "album_cover": "maxresdefault-1.jpg"
-    },
-    {
-      "id": "4",
-      "title": "2241",
-      "artist": "Danger",
-      "genres": [
-        "edm",
-        "rock"
-      ],
-      "album_cover": ""
-    },
-    {
-      "id": "5",
-      "title": "Crash 2.0",
-      "artist": "Adventure Club",
-      "genres": [
-        "edm",
-        "house"
-      ],
-      "album_cover": ""
-    },
-    {
-      "id": "6",
-      "title": "Fly Away feat. Anjulie",
-      "artist": "TheFatRat",
-      "genres": [
-        "edm"
-      ],
-      "album_cover": ""
+      "album_cover": "Shape_Of_You_(Official_Single_Cover)_by_Ed_Sheeran.png"
     }
   ],
   "playlists": [
     {
       "id": "1232",
-      "name": "playlist",
+      "name": "Playlist",
       "songs": [
+        0,
         1,
         2,
-        1
+        6,
+        9
       ]
     }
   ]

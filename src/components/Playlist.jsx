@@ -35,7 +35,7 @@ export default function Playlist({playlistId, playlistName, playlistArray, setPl
         <div className="header">
             {playlistName}
         </div>
-        <input type="test" placeholder="Search..." value={value} onChange={event => {
+        <input className="input" type="test" placeholder="Search..." value={value} onChange={event => {
             handleSearch(event.target.value);
             setValue(event.target.value);
         }}></input>
