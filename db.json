@@ -64,18 +64,9 @@
       "id": "1232",
       "name": "playlist",
       "songs": [
-        0,
         1,
-        2
-      ]
-    },
-    {
-      "id": "07ea",
-      "name": "test playlist",
-      "songs": [
-        1,
-        3,
-        2
+        2,
+        1
       ]
     }
   ]

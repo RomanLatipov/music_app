@@ -1,3 +1,4 @@
+import "./Playlist.css"
 import Song from "./Song";
 import { useState } from "react";
 export default function Playlist({playlistId, playlistName, playlistArray, setPlaylistArray, songs, setCurentSong, setSrcChange, setPlaying}) {
@@ -31,7 +32,9 @@ export default function Playlist({playlistId, playlistName, playlistArray, setPl
             hanldeDeleteFromPlaylist(playlistId, index);
         }}>Delete</button>}/>)
     return(<>
-        <h1>{playlistName}</h1>
+        <div className="header">
+            {playlistName}
+        </div>
         <input type="test" placeholder="Search..." value={value} onChange={event => {
             handleSearch(event.target.value);
             setValue(event.target.value);

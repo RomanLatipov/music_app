@@ -1,8 +1,6 @@
 import "./AudioPlayer.css"
 import { useState } from "react";
 export default function AudioPlayer({musicArray, srcChange, setSrcChange, isPlaying, setPlaying, currentSong, setIndex, playlistArray, mostRecent, setMostRecent}) {
-    // console.log(playlistArray);
-    // console.log(musicArray[playlistArray[songId]]["album_cover"]);
     const index = playlistArray.indexOf(currentSong);
     if (srcChange === true) {
         loadSong(index);
@@ -16,6 +14,7 @@ export default function AudioPlayer({musicArray, srcChange, setSrcChange, isPlay
     const [volumeMuted, setVolumeMuted] = useState(false);
     const [shuffle, setShuffle] = useState(false);
     const [name, setName] = useState("");
+    const [imgSrc, setImgSrc] = useState("");
 
     function playSong() {
         if (isPlaying === false) {
@@ -33,10 +32,8 @@ export default function AudioPlayer({musicArray, srcChange, setSrcChange, isPlay
         }
     }
     function loadSong(songId) {
-        // console.log(playlistArray[songId]);
         audio.src = `/songs/${musicArray[playlistArray[songId]].title}.mp3`;
 	    audio.load();
-        document.getElementById("main").style.backgroundImage = `url(./public/images/${musicArray[playlistArray[songId]]["album_cover"]})`;
         setMostRecent([playlistArray[songId], ...mostRecent]);
         switchTrack();
     }
@@ -70,7 +67,6 @@ export default function AudioPlayer({musicArray, srcChange, setSrcChange, isPlay
     }
     function timeupdate() {
         const currentAudioTime = Math.floor(audio.currentTime);
-	    // const timePercentge = (currentAudioTime / audio.duration) * 100 + "%";
         setTime(setCurrentTime, currentAudioTime);
         let time = audio.currentTime / audio.duration * 100;
         setSlider((isNaN(time)) ? 0 : time);
@@ -78,10 +74,6 @@ export default function AudioPlayer({musicArray, srcChange, setSrcChange, isPlay
     function customSlider(value) {
         setSlider(value);
         const val = (value / audio.duration) * 100 + "%";
-        // const time = (isNaN(value)) ? 0 : audio.duration * (value/100);
-        // progress.style.width = val;
-        // thumb.style.left = val;
-        
         setTime(setCurrentTime, value);
         audio.currentTime = audio.duration * (value / 100);
     }
@@ -92,55 +84,62 @@ export default function AudioPlayer({musicArray, srcChange, setSrcChange, isPlay
 
     return(<>
         <audio id="audio" onLoadedData={() => {
-            setTime(setEndTime, audio.duration)
-            setName(musicArray[playlistArray[index]].title);
-        }} onEnded={() => nextSong(index+1)} onTimeUpdate={() => timeupdate()}>
+                setTime(setEndTime, audio.duration)
+                setName(musicArray[playlistArray[index]].title);
+                setImgSrc(`/images/${musicArray[playlistArray[index]]["album_cover"]}`)
+            }} onEnded={() => nextSong(index+1)} onTimeUpdate={() => timeupdate()}>
             <source src={""}></source> 
         </audio>
+        <div id="songInfo">
+        <img src={imgSrc}></img>
+            <p>{name}</p>
+        </div>
     	<div className="player">
-            <h1>{name}</h1>
-            <button onClick={() => prevSong(index-1)}>
-                <span class="material-symbols-outlined">
+            <button id="btn" onClick={() => prevSong(index-1)}>
+                <span className="material-symbols-outlined">
                     fast_rewind
                 </span>
             </button>
-            <button onClick={() => {
+            <button id="btn" onClick={() => {
                 setPlaying((isPlaying) => !isPlaying);
                 playSong();
             }}>
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                     {(!isPlaying) ? `play_arrow` : `pause` }
                 </span>
             </button>
-            <button onClick={() => nextSong(index+1)}>
-                <span class="material-symbols-outlined">
+            <button id="btn" onClick={() => nextSong(index+1)}>
+                <span className="material-symbols-outlined">
                     fast_forward
                 </span>
             </button>
-            <button onClick={() => setShuffle(!shuffle)}>
-                <span class="material-symbols-outlined">
+            <small className="time">{currentTime}</small>
+            <div>
+                <input type="range" min="0" max="100" value={slider} className="slider" id="myRange" onInput={event => customSlider(event.target.value)}></input>
+            </div>
+            <small>{endTime}</small>
+            <button id="btn" onClick={() => setShuffle(!shuffle)}>
+                <span className="material-symbols-outlined">
                     shuffle
                 </span>
             </button>
-            <small class="time">{currentTime}</small>
-            <div id="slider">
-                <input type="range" min="0" max="100" value={slider} onInput={event => customSlider(event.target.value)}></input>
-            </div>
-            <small class="fulltime">{endTime}</small>
-            <button class="volume-icon" onClick={() => {
+        </div>
+        <div className="volume">
+            <button id="btn" className="volume-icon" onClick={() => {
                 setVolumeMuted(!volumeMuted);
                 volumeMuted ? customVolumeSlider(volume) : customVolumeSlider(0);
             }}>
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                     {volumeIcon}
                 </span>
             </button>
             <div>
-                <input type="range" min="0" max="100" value={volumeMuted ? 0 : volume} class="slider" onInput={event => {
+                <input type="range" min="0" max="100" value={volumeMuted ? 0 : volume} onInput={event => {
                     customVolumeSlider(event.target.value);
                     setVolume(event.target.value);
                 }}></input>
             </div>
         </div>
+    
     </>)
 }

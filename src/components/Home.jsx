@@ -26,18 +26,22 @@ export default function Home() {
 
     return(<>
         <div id="sidebar">
-            <button onClick={() => setToggle(true)}>Main</button>
-            <PlaylistsDisplay setToggle={setToggle} setPlaylistName={setPlaylistName} setPlaylistArray={setPlaylistArray} setPlaylistId={setPlaylistId}/>
+            <div style={{padding: "5px"}}>
+                <div id="main-btn" onClick={() => setToggle(true)}>Main</div>
+                <PlaylistsDisplay setToggle={setToggle} setPlaylistName={setPlaylistName} setPlaylistArray={setPlaylistArray} setPlaylistId={setPlaylistId}/>
+            </div>
         </div>
         <div id="main">
             <Navbar />
-            {toggle 
-                ? 
-                <Main songs={songs} mostRecent={mostRecent} setMostRecent={setMostRecent}/> 
-                : 
-                <Playlist playlistId={playlistId} playlistName={playlistName} playlistArray={playlistArray} setPlaylistArray={setPlaylistArray} 
-                    songs={songs} setCurentSong={setCurentSong} setSrcChange={setSrcChange} setPlaying={setPlaying} mostRecent={mostRecent} setMostRecent={setMostRecent}/>
-            }
+            <div style={{padding: "10px"}}>
+                {toggle 
+                    ? 
+                    <Main songs={songs} mostRecent={mostRecent} setMostRecent={setMostRecent}/> 
+                    : 
+                    <Playlist playlistId={playlistId} playlistName={playlistName} playlistArray={playlistArray} setPlaylistArray={setPlaylistArray} 
+                        songs={songs} setCurentSong={setCurentSong} setSrcChange={setSrcChange} setPlaying={setPlaying} mostRecent={mostRecent} setMostRecent={setMostRecent}/>
+                }
+            </div>
         </div>
         <div id="footer">
             <AudioPlayer musicArray={songs} srcChange={srcChange} setSrcChange={setSrcChange} isPlaying={isPlaying} setPlaying={setPlaying} currentSong={currentSong} setIndex={setCurentSong} playlistArray={playlistArray} mostRecent={mostRecent} setMostRecent={setMostRecent}/>
